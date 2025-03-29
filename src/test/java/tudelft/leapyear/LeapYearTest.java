@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class LeapYearTest {
+    //Cuando esta en false : true, no sigue la logica de años bisiestos, ya que 2016
+    //si es año bisiesto pero la logica de flase : true no
     @Test
     public void leapYearsThatAreNonCenturialYears() {
         LeapYear ly = new LeapYear();
@@ -22,7 +24,8 @@ public class LeapYearTest {
         LeapYear ly = new LeapYear();
         Assertions.assertFalse(ly.isLeapYear(1500));
     }
-
+    //Cuando esta en false : true, no sigue la logica de años bisiestos, ya que 2016
+    //si es año bisiesto pero la logica de flase : true no
     @Test
     public void nonLeapYears() {
         LeapYear ly = new LeapYear();
