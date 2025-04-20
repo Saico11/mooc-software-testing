@@ -14,7 +14,9 @@ public class CountLetters {
             last = str.charAt(i);
         }
 
-        if(last == 'x' || last == 's')
+        // aca esta el error donde tendria que ser "r" y "s"
+
+        if(last == 'r' || last == 's')
             words++;
 
         return words;

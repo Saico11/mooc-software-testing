@@ -5,9 +5,13 @@ import org.junit.jupiter.api.Test;
 
 public class CountLettersTest {
 
+    // En este ejercicio2 solo debemos configurar el codeCoverage y ver la clase counteLettersTest y analizar
+
+
+    // Y en esta funcion tneemos que cambiar el count para que nos debuguee bien
     @Test
     public void multipleMatchingWords() {
-        int words = new CountLetters().count("cats|dogs");
+        int words = new CountLetters().count("catr dogr");
         Assertions.assertEquals(2, words);
     }
 
