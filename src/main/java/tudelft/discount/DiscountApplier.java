@@ -1,4 +1,5 @@
 package tudelft.discount;
+import java.util.List;
 
 public class DiscountApplier {
 
@@ -7,17 +8,15 @@ public class DiscountApplier {
     public DiscountApplier (ProductDao dao) {
         this.dao = dao;
     }
-
-    public void setNewPrices() {
-
-        for(Product product : dao.all()) {
-            if(product.getCategory().equals("BUSINESS")) {
-                product.setPrice(product.getPrice() * 0.9);
-            }
-            if(product.getCategory().equals("HOME")) {
-                product.setPrice(product.getPrice() * 1.1);
+//se edito para hacer el test
+    public void applyDiscount() {
+        List<Product> products = dao.getAll();
+        for (Product p : products) {
+            if (p.getCategory().equals("HOME")) {
+                p.setPrice(p.getPrice() * 0.9);
+            } else if (p.getCategory().equals("BUSINESS")) {
+                p.setPrice(p.getPrice() * 1.1);
             }
         }
-
     }
 }

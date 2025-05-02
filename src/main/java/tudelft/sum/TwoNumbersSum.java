@@ -4,28 +4,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 // Source: https://leetcode.com/problems/add-two-numbers/description/
-class TwoNumbersSum {
+//el error es que no manejaba correctamente el acarreo en sumas simples
 
-    public ArrayList<Integer> addTwoNumbers(ArrayList<Integer> first, ArrayList<Integer> second) {
-        Collections.reverse(first);
-        Collections.reverse(second);
-
-        int complement = 0;
+public class TwoNumbersSum {
+    public ArrayList<Integer> addTwoNumbers(ArrayList<Integer> a, ArrayList<Integer> b) {
         ArrayList<Integer> result = new ArrayList<>();
-
-        for(int i = 0; i < Math.max(first.size(), second.size()); i++){
-            int firstVal = i < first.size() ? first.get(i) : 0;
-            int secondVal = i < second.size() ? second.get(i) : 0;
-            int total = firstVal + secondVal + complement;
-            complement = 0;
-            if (total >= 10){
-                complement = 1;
-                total -= 10;
-            }
-            result.add(i, total);
+        int carry = 0;
+        for (int i = 0; i < Math.max(a.size(), b.size()); i++) {
+            int digitA = i < a.size() ? a.get(i) : 0;
+            int digitB = i < b.size() ? b.get(i) : 0;
+            int sum = digitA + digitB + carry;
+            result.add(sum % 10);
+            carry = sum / 10;
         }
-
-        Collections.reverse(result);
+        if (carry > 0) {
+            result.add(carry);
+        }
         return result;
     }
 }

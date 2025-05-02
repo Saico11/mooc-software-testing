@@ -1,21 +1,15 @@
 package tudelft.mirror;
-
+//se corrigio el error, ya que el metodo compara caracteres desde el incio a fin hasta encontrar discrepancia
 public class Mirror {
-
-    public String mirrorEnds(String string) {
-        String mirror = "";
-
-        int begin = 0;
-        int end = string.length() - 1;
-        for (; begin < end; begin++, end--) {
-            if (string.charAt(begin) == string.charAt(end)) {
-                mirror += String.valueOf(string.charAt(end));
-            }
-            else {
+    public String mirrorEnds(String s) {
+        StringBuilder mirrored = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == s.charAt(s.length() - 1 - i)) {
+                mirrored.append(s.charAt(i));
+            } else {
                 break;
             }
         }
-
-        return begin == end ? string : mirror;
+        return mirrored.toString();
     }
 }
